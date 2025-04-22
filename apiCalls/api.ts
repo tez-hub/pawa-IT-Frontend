@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8000";
 
-export const sendQuestion = async (question) => {
+export const sendQuestion = async (question: string) => {
   try {
     const token = localStorage.getItem("token");
     const res = await axios.post(
@@ -31,7 +31,7 @@ export const fetchHistory = async () => {
 };
 
 
-export const registerUser = async (email, password) => {
+export const registerUser = async (email: string, password: string) => {
     const form = new URLSearchParams();
     form.append("username", email);
     form.append("password", password);
@@ -47,7 +47,7 @@ export const registerUser = async (email, password) => {
 };
 
   
-export const loginUser = async (email, password) => {
+export const loginUser = async (email: string, password: string) => {
     const form = new URLSearchParams();
     form.append("username", email);
     form.append("password", password);
