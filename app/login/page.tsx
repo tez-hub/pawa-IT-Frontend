@@ -3,6 +3,7 @@
 import { useEffect, useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { loginUser } from "../../apiCalls/api";
+import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
@@ -55,6 +56,7 @@ export default function Login() {
             Login
           </button>
         </form>
+        <p className="text-sm text-black text-center pt-5">Don't have an account? <Link className="text-blue-600" href={'/register'}>Register</Link></p>
       </div>
     </div>
   
