@@ -55,7 +55,7 @@ const App: React.FC = () => {
         <h1 className="text-3xl font-bold text-blue-600">Travel Assistant</h1>
         <button
           onClick={handleLogout} // define this function to clear auth, etc.
-          className="text-sm text-red-600 hover:underline"
+          className="text-2xl text-red-600 hover:underline"
         >
           Logout
         </button>
