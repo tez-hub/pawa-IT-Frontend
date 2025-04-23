@@ -12,7 +12,7 @@ interface ChatBoxProps {
 
 const ChatBox: React.FC<ChatBoxProps> = ({ history }) => {
   return (
-    <div className="bg-white shadow-lg rounded-xl p-4 max-h-[70vh] sm:max-h-[60vh] overflow-y-auto mb-4 border border-gray-200 space-y-6">
+    <div className="bg-white shadow-lg rounded-xl p-4 max-h-[70vh] sm:max-h-[55vh] overflow-y-auto mb-4 border border-gray-200 space-y-6">
       {history.map((entry, i) => (
         <div key={i} className="space-y-3">
           {/* User message */}

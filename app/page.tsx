@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import ChatBox from "../components/ChatBox";
 import InputArea from "../components/InputArea";
 import { sendQuestion, fetchHistory } from "../apiCalls/api";
+import Navbar from "@/components/Navbar";
 
 interface ChatEntry {
   question: string;
@@ -35,18 +36,36 @@ const App: React.FC = () => {
     }
   }, [router]);
 
+  const handleLogout = () => {
+    // Clear auth token
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
+  
+
   useEffect(() => {
     loadHistory();
   }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-6">Travel Assistant</h1>
-        <ChatBox history={history} />
-        <InputArea onSend={handleSend} />
+    <div className="max-w-3xl mx-auto">
+      {/* Header with Travel Assistant and Logout */}
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold text-blue-600">Travel Assistant</h1>
+        <button
+          onClick={handleLogout} // define this function to clear auth, etc.
+          className="text-sm text-red-600 hover:underline"
+        >
+          Logout
+        </button>
       </div>
+  
+      <ChatBox history={history} />
+      <InputArea onSend={handleSend} />
     </div>
+  </div>
+  
   );
 };
 
