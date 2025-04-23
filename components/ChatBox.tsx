@@ -11,6 +11,8 @@ interface ChatBoxProps {
 }
 
 const ChatBox: React.FC<ChatBoxProps> = ({ history }) => {
+  if (!history.length) return null;
+
   return (
     <div className="bg-white shadow-lg rounded-xl p-4 max-h-[70vh] sm:max-h-[55vh] overflow-y-auto mb-4 border border-gray-200 space-y-6">
       {history.map((entry, i) => (
