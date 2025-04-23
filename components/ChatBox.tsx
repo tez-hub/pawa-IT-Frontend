@@ -12,14 +12,26 @@ interface ChatBoxProps {
 
 const ChatBox: React.FC<ChatBoxProps> = ({ history }) => {
   return (
-    <div className="bg-white shadow-md rounded p-4 h-[30rem] overflow-y-auto mb-4">
+    <div className="bg-white shadow-lg rounded-xl p-4 max-h-[70vh] sm:max-h-[60vh] overflow-y-auto mb-4 border border-gray-200 space-y-6">
       {history.map((entry, i) => (
-        <div key={i} className="mb-4">
-          <p className="font-semibold text-blue-600">You:</p>
-          <p>{entry.question}</p>
-          <p className="font-semibold text-green-600 mt-2">Assistant:</p>
-          <ReactMarkdown>{entry.response}</ReactMarkdown>
-          <hr className="my-2" />
+        <div key={i} className="space-y-3">
+          {/* User message */}
+          <div className="flex justify-start">
+            <div className="max-w-[75%] bg-blue-100 text-blue-800 px-4 py-2 rounded-2xl rounded-bl-sm shadow-sm">
+              <p className="text-sm font-medium">You</p>
+              <p className="mt-1">{entry.question}</p>
+            </div>
+          </div>
+
+          {/* Assistant message */}
+          <div className="flex justify-end">
+            <div className="max-w-[75%] bg-green-100 text-green-800 px-4 py-2 rounded-2xl rounded-br-sm shadow-sm">
+              <p className="text-sm font-medium text-right">Assistant</p>
+              <ReactMarkdown>
+                {entry.response}
+              </ReactMarkdown>
+            </div>
+          </div>
         </div>
       ))}
     </div>
